@@ -7,7 +7,7 @@ export class TodoPage {
         this.todoItems = page.locator('.todo-list li');
     }
     async goto() {
-          await this.page.goto('https://demo.playwright.dev/todomvc/#/'); 
+          await this.page.goto('/'); 
     } 
 
     async addTask (taskName) {
