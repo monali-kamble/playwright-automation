@@ -25,6 +25,8 @@ jobs:
 
       - name: Run smoke tests
         run: npx playwright test --grep @smoke
+        env:
+          BASE_URL: https://demo.playwright.dev/todomvc
 
       - name: Upload Playwright Report
         if: always()
