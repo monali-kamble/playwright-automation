@@ -11,17 +11,20 @@ test.describe('Todo App', () => {
 
 
 test('User can add a Task', async ({ todoPage }) => {
+        await todoPage.goto();
         await todoPage.addTask('buy groceries');
         await todoPage.verifyTaskVisible(['buy groceries']);
 });
 
 test('User can add multiple Tasks @smoke', async ({ todoPage }) => {
+  await todoPage.goto();
   await todoPage.addTasks(tasks);
   await todoPage.verifyTasksVisible(tasks);
 });
 
 
 test('User can complete and delete the task from the list', async ({ todoPage }) => {
+  await todoPage.goto();
   await todoPage.addTasks(tasks);
   
   await todoPage.deleteCompletedTask(tasks[0]);
@@ -29,6 +32,7 @@ test('User can complete and delete the task from the list', async ({ todoPage })
 });
 
 test ('API + UI Validation  @smoke @apiui', async ({ todoPage }) => {
+  await todoPage.goto();
   const taskName = 'Learn Playwright' ;
   await todoPage.addTask(taskName);
   await todoPage.verifyTaskVisible(taskName);
